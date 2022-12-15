@@ -1,0 +1,49 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root{
+  --primary: #009688;
+  --secondary: #5d4157;
+  --tertiary:#a8caba;
+  --quaternary:#cad7b2;
+  --padding: 15px;
+  --gray: #405040;
+  --ligth-gray: #dedede;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  color: inherit;
+}
+
+
+*{
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  padding: 30px;
+  margin: auto;
+}
+
+
+@media screen and (min-width: 601px)  {
+  main{
+    display: flex;
+  }
+  .experiences{
+    min-width: calc(100vw - 35vw - 12px);
+  }
+}

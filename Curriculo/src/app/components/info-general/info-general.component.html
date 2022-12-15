@@ -1,0 +1,59 @@
+<section class="containerSection">
+  <section class="imgAndInfos">
+    <div class="img_perfil">
+      <img src="{{ data.basicInfo.profileImg }}" alt="" />
+      <h2 [innerHTML]="data.basicInfo.name"></h2>
+    </div>
+    <div>
+      <div class="items">
+        <span class="material-symbols-outlined"> business_center </span>
+        <h3 [innerHTML]="data.basicInfo.office"></h3>
+      </div>
+
+      <div class="items">
+        <span class="material-symbols-outlined"> house </span>
+        <h3 [innerHTML]="data.basicInfo.city"></h3>
+      </div>
+      <div class="items">
+        <span class="material-symbols-outlined"> mail </span>
+        <h3 [innerHTML]="data.basicInfo.email"></h3>
+      </div>
+      <div class="items">
+        <span class="material-symbols-outlined"> call </span>
+        <h3 [innerHTML]="data.basicInfo.phoneNumber"></h3>
+      </div>
+    </div>
+  </section>
+  <section class="skills">
+    <div class="items">
+      <span class="material-symbols-outlined"> emergency </span>
+      <h3 [innerHTML]="data.skilss.title"></h3>
+    </div>
+
+    <ng-container *ngFor="let item of data.skilss.knowledge">
+      <p [innerHTML]="item.name"></p>
+      <div class="containerSkills">
+        <div class="box{{ item.numberLevel }}">
+          <h6 [innerHTML]="item.level">90%</h6>
+        </div>
+      </div>
+    </ng-container>
+  </section>
+  <section class="languages">
+    <div class="items">
+      <span class="material-symbols-outlined"> public </span>
+      <h3 [innerHTML]="data.languages.title"></h3>
+    </div>
+
+    <ng-container *ngFor="let item of data.languages.knowledge">
+      <p [innerHTML]="item.name"></p>
+      <div class="containerLanguages">
+        <div class="box{{ item.numberLevel }}"></div>
+      </div>
+    </ng-container>
+  </section>
+</section>
+<section class="experiences">
+  <app-experiences [experiences]="data.experience"></app-experiences>
+  <app-forms></app-forms>
+</section>

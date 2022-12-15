@@ -1,0 +1,248 @@
+.containerSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 3%;
+  width: 32vw;
+  height: auto;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.skills{
+  margin-top: 5vh;
+}
+
+.languages{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.img_perfil{
+  position: relative;
+  width: 27vw;
+  height: 65vh;
+}
+.img_perfil img{
+    width: 100%;
+    height: 100%;
+}
+
+.img_perfil h2{
+  position: absolute;
+  bottom: 10px;
+  padding-left: 1vw;
+}
+
+.items{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 30vw;
+  margin-top: 1.5vh;
+
+}
+h3{
+  padding-left: 2vw;
+  font-weight: 500;
+  font-size: 15pt;
+  color: #666666
+}
+
+span{
+  color: #009688;
+}
+
+.containerSkills{
+  width: 100%;
+  height: 3vh;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.box90{
+  width: 90%;
+  height: 3vh;
+  background-color: #009688;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.box80{
+  width: 80%;
+  height: 3vh;
+  background-color: #009688;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.box75{
+  width: 75%;
+  height: 3vh;
+  background-color: #009688;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.box50{
+  width: 50%;
+  height: 3vh;
+  background-color: #009688;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.containerLanguages{
+  width: 100%;
+  height: 4vh;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.box100{
+  width: 100%;
+  height: 4vh;
+  background-color: #009688;
+  border-radius: 10px;
+}
+
+.box55{
+  width: 55%;
+  height: 4vh;
+  background-color: #009688;
+  border-radius: 10px;
+}
+
+.box25{
+  width: 25%;
+  height: 4vh;
+  background-color: #009688;
+  border-radius: 10px;
+}
+
+p{
+  color: #666666
+}
+
+
+@media(max-width: 700px) and (min-width: 360px) {
+  .containerSection{
+    width: 100%;
+
+  }
+  .img_perfil{
+    position: relative;
+    width: 70vw;
+    height: 65vh;
+  }
+
+  .img_perfil img{
+      width: 100%;
+      height: 100%;
+
+  }
+
+  .img_perfil h2{
+    position: absolute;
+    bottom: 10px;
+    padding-left: 1vw;
+  }
+
+  .items{
+    width: 100%;
+  }
+
+  h3{
+    font-size: 15pt;
+  }
+
+  .skills{
+    margin-top: 4vh;
+    width: 84%;
+  }
+
+  .languages{
+    margin-top: 7vh;
+    margin-bottom: 4vh;
+    width: 84%;
+  }
+
+  .containerSkills{
+
+    width: 100%;
+    height: 3vh;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .box90{
+    width: 90%;
+    height: 3vh;
+    background-color: #009688;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .box80{
+    width: 80%;
+    height: 3vh;
+    background-color: #009688;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .box75{
+    width: 75%;
+    height: 3vh;
+    background-color: #009688;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .box50{
+    width: 50%;
+    height: 3vh;
+    background-color: #009688;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .containerLanguages{
+    width: 100%;
+    height: 4vh;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .box100{
+    width: 100%;
+    height: 4vh;
+    background-color: #009688;
+    border-radius: 10px;
+  }
+
+  .box55{
+    width: 55%;
+    height: 4vh;
+    background-color: #009688;
+    border-radius: 10px;
+  }
+
+  .box25{
+    width: 25%;
+    height: 4vh;
+    background-color: #009688;
+    border-radius: 10px;
+  }
+
+}
+

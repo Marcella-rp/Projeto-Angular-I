@@ -1,0 +1,20 @@
+:host .container{
+  background-color: #f2f2f2;
+  margin: 14px 14px 0 14px;
+  padding: 28px;
+  box-shadow: 0 2px 2px 2px #d5d5d5;
+}
+:host .info {
+  display: flex;
+  align-items: center;
+  padding-bottom: 40px;
+  font-size: 30px;
+  font-weight: 400;
+  color: #666666;
+}
+:host .info__icon {
+  padding-right: 60px;
+  font-size: 40px;
+  min-height: 38px;
+  color: #009688;
+}
