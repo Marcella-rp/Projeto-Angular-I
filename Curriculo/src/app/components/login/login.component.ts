@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { LoginService } from './services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
@@ -13,7 +15,11 @@ export class LoginComponent implements OnInit {
   loginData!: LoginData;
   public form!: FormGroup;
 
-  constructor(private service: UsersService) {}
+  constructor(
+    private service: UsersService,
+    private serviceLogin: LoginService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
