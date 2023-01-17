@@ -1,6 +1,6 @@
 <section class="container">
   <h2 class="form__title">Login</h2>
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-field">
       <label class="form-field__label" for="user">User Name</label>
       <input
