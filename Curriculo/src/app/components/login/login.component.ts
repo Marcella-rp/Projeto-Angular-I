@@ -53,4 +53,19 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
+  public onSubmit(): void{
+    const payload = this.form.getRawValue();
+    this.serviceLogin.login(payload).subscribe({
+      next: (res) => {
+        console.log(payload);
+        this.router.navigate(['/']);
+        localStorage.setItem('USER_TOKEN', res.token);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+
+  }
 }
