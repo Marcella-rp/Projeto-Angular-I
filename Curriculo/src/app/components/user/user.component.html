@@ -1,1 +1,47 @@
-<p>user works!</p>
+<section class="containerSection">
+  <section class="imgAndInfos">
+    <div class="img_perfil">
+      <img src="{{ user.image }}" alt="" />
+      <h2 [innerHTML]="user.personalInformationData.name"></h2>
+    </div>
+    <div>
+      <div class="items">
+        <span class="material-symbols-outlined"> business_center </span>
+        <h3 [innerHTML]="user.personalInformationData.occupation"></h3>
+      </div>
+
+      <div class="items">
+        <span class="material-symbols-outlined"> house </span>
+        <h3 [innerHTML]="user.personalInformationData.city"></h3>
+      </div>
+      <div class="items">
+        <span class="material-symbols-outlined"> mail </span>
+        <h3 [innerHTML]="user.personalInformationData.email"></h3>
+      </div>
+      <div class="items">
+        <span class="material-symbols-outlined"> call </span>
+        <h3 [innerHTML]="user.personalInformationData.phone"></h3>
+      </div>
+    </div>
+
+    <section class="skills">
+      <div class="items">
+        <span class="material-symbols-outlined"> emergency </span>
+        <h3 [innerHTML]="user.skillName"></h3>
+      </div>
+      <div class="containerSkills">
+        <div class="box-{{ user.skillLevel }}"></div>
+      </div>
+    </section>
+    <section class="languages">
+      <div class="items">
+        <span class="material-symbols-outlined"> public </span>
+        <h3 [innerHTML]="user.languageName"></h3>
+      </div>
+      <div class="containerLanguages">
+        <div class="box-{{ user.languagelevel }}"></div>
+      </div>
+    </section>
+  </section>
+  <section class="experiences"></section>
+</section>

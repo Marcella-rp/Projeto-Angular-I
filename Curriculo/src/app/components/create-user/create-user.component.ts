@@ -79,4 +79,8 @@ export class CreateUserComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
     }
   }
+
+  public CancelUserForm() {
+    this.router.navigateByUrl('list-user');
+  }
 }
