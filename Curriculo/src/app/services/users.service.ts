@@ -8,26 +8,15 @@ import { LoginData } from 'src/models/login-data.models';
   providedIn: 'root',
 })
 export class UsersService {
-  private loginsList?: LoginData[];
   private url = 'http://localhost:3000/User';
 
-  constructor(private httpClient: HttpClient) {
-    this.loginsList = [];
-  }
-
-  get logins() {
-    return this.loginsList;
-  }
-
-  getLogins(): Observable<CreateUserData[]> {
-    return this.httpClient.get<CreateUserData[]>(this.url);
-  }
+  constructor(private httpClient: HttpClient) {}
 
   postUsers(user: CreateUserData): Observable<CreateUserData> {
     return this.httpClient.post<CreateUserData>(this.url, user);
   }
 
-  post(login: any) {
-    this.loginsList?.push(login);
+  getUsers(): Observable<CreateUserData[]> {
+    return this.httpClient.get<CreateUserData[]>(this.url);
   }
 }
