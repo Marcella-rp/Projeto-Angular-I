@@ -101,6 +101,25 @@ p{
   color: #666666
 }
 
+.actions {
+  display: flex;
+  justify-content: flex-end
+}
+
+.button-delete {
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.button-edit {
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
 
 @media(max-width: 700px) and (min-width: 360px) {
 

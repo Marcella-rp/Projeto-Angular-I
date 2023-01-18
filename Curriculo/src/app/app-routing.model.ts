@@ -1,3 +1,4 @@
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,6 +7,7 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 // import { InfoGeneralComponent } from './components/info-general/info-general.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { FormsComponent } from './components/forms/forms.component';
+import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'list-user', pathMatch: 'full' },
@@ -15,6 +17,8 @@ export const routes: Routes = [
   { path: 'create-user', component: CreateUserComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: FormsComponent },
+  { path: 'user/deleteUser/:id', component: DeleteUserComponent },
+  { path: 'user/editUser/:id', component: EditUserComponent },
 ];
 
 @NgModule({

@@ -15,7 +15,22 @@ export class UsersService {
     return this.httpClient.get<CreateUserData[]>(this.urlApi);
   }
 
+  getUserById(id: number): Observable<CreateUserData> {
+    const url = `${this.urlApi}/${id}`;
+    return this.httpClient.get<CreateUserData>(url);
+  }
+
   postUsers(user: CreateUserData): Observable<CreateUserData> {
     return this.httpClient.post<CreateUserData>(this.urlApi, user);
+  }
+
+  putUser(user: CreateUserData): Observable<CreateUserData> {
+    const url = `${this.urlApi}/${user.id}`;
+    return this.httpClient.put<CreateUserData>(this.urlApi, user);
+  }
+
+  deleteUser(id: number): Observable<CreateUserData> {
+    const url = `${this.urlApi}/${id}`;
+    return this.httpClient.delete<CreateUserData>(url);
   }
 }

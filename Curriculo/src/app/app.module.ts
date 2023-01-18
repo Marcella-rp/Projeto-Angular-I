@@ -16,6 +16,8 @@ import { InfoGeneralComponent } from './components/info-general/info-general.com
 import { CommonModule } from '@angular/common';
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { UserComponent } from './components/user/user.component';
+import { DeleteUserComponent } from './components/delete-user/delete-user.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { UserComponent } from './components/user/user.component';
     LoginComponent,
     ListUserComponent,
     UserComponent,
+    DeleteUserComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,

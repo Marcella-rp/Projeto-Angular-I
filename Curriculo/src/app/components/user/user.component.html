@@ -42,6 +42,13 @@
         <div class="box-{{ user.languagelevel }}"></div>
       </div>
     </section>
+    <div class="actions">
+      <button class="button-edit" routerLink="/user/editUser/{{ user.id }}">
+        <img src="../../../assets/images/edit-icon.png" alt="edit icon" />
+      </button>
+      <button class="button-delete" routerLink="/user/deleteUser/{{ user.id }}">
+        <img src="../../../assets/images/delete-icon.png" alt="delete icon" />
+      </button>
+    </div>
   </section>
-  <section class="experiences"></section>
 </section>
