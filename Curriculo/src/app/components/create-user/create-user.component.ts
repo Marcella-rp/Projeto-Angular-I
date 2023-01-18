@@ -58,7 +58,7 @@ export class CreateUserComponent implements OnInit {
 
         let userIndex!: string;
 
-        this.service.getLogins().subscribe((logins: CreateUserData[]) => {
+        this.service.getUsers().subscribe((logins: CreateUserData[]) => {
           let quantify = logins.length - 1;
           userIndex = quantify.toString();
           let user = 'userAcess';

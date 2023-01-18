@@ -23,7 +23,7 @@ export class InfoGeneralDynamicComponent implements OnInit {
     let myUserNumber = myUser != null ? parseInt(myUser) : -1;
     console.log(myUserNumber);
     if (myUserNumber != -1) {
-      this.service.getLogins().subscribe((logins: CreateUserData[]) => {
+      this.service.getUsers().subscribe((logins: CreateUserData[]) => {
         for (let index = 0; index < 1; index++) {
           const user = logins[myUserNumber];
 

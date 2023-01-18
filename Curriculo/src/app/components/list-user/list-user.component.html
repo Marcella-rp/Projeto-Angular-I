@@ -1,0 +1,17 @@
+<section class="container">
+  <header class="header d-flex">
+    <h2 class="ff-inter">Users</h2>
+    <!-- <button routerLink ="/createUpdateCup" class="button">Add cup</button> -->
+  </header>
+
+  <div class="mural" *ngIf="listUser.length > 0; else withoutUser">
+    <div *ngFor="let user of listUser">
+      <app-user [user]="user"></app-user>
+    </div>
+  </div>
+</section>
+<ng-template #withoutUser>
+  <div class="ff-inter without-user">
+    <p>No users registered yet</p>
+  </div>
+</ng-template>
