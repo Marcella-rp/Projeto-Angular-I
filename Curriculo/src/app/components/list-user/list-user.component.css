@@ -6,6 +6,13 @@
   margin: 1rem 0 2rem;
 }
 
+.title{
+  text-align: center;
+  padding-top: 3vh;
+  padding-bottom: 1vh;
+  color: #009688;
+}
+
 .d-flex {
   display: flex;
   flex-direction: column;
@@ -16,6 +23,3 @@
   text-align: center;
   padding: 2rem 0 5rem;
 }
-
-
-
