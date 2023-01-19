@@ -1,22 +1,6 @@
 <section class="container">
-  <h2 class="form__title">Create New User</h2>
+  <h2 class="form__title">Edit New User</h2>
   <form [formGroup]="form">
-    <label class="image-upload-container btn btn-bwm">
-      <span>Select Image </span>
-      <input
-        type="file"
-        id="image"
-        multiple
-        (change)="previewFile($event)"
-      /><br />
-      <img
-        id="img__preview"
-        [src]="imgSrc"
-        height="400"
-        alt="Image preview..."
-      /><br />
-    </label>
-
     <div class="PersonalInformation" formGroupName="personalInformationData">
       <div class="form-field">
         <label class="form-field__label" for="user">Name</label>
@@ -45,6 +29,7 @@
           type="text"
           id="cpf"
           placeholder="Type your CPF..."
+          mask="000.000.000-00"
           formControlName="cpf"
         />
       </div>
@@ -55,6 +40,7 @@
           type="text"
           id="zipCode"
           placeholder="Type your CEP..."
+          mask="00000-000"
           formControlName="zipCode"
         />
       </div>
@@ -96,6 +82,7 @@
           id="phone"
           placeholder="Type your phone..."
           formControlName="phone"
+          mask="(00) 0 0000-0000"
         />
       </div>
     </div>
@@ -216,7 +203,7 @@
       </div>
     </div>
     <div class="button-wrapper">
-      <button class="btn" (click)="EditUserForm($event)">Create</button>
+      <button class="btn" (click)="EditUserForm($event)">Edit</button>
       <button class="btn" (click)="CancelUserForm()">Cancel</button>
     </div>
 

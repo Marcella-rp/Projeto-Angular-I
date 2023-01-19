@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
-import { CreateUserData } from 'src/models/createUser-data.models';
 import { ImageSnippet } from 'src/models/image-snippet.models';
 
 @Component({
@@ -27,6 +26,7 @@ export class EditUserComponent {
     const id = this.route.snapshot.paramMap.get('id');
     this.service.getUserById(parseInt(id!)).subscribe((user) => {
       this.user = user;
+      this.form.patchValue(this.user);
     });
   }
 
@@ -38,13 +38,43 @@ export class EditUserComponent {
         date: new FormControl(new Date()),
       }),
       personalInformationData: new FormGroup({
-        name: new FormControl(),
+        name: new FormControl([
+          Validators.required,
+          Validators.minLength(3),
+          Validators.pattern(
+            '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
+          ),
+        ]),
         occupation: new FormControl(),
-        cpf: new FormControl(),
-        zipCode: new FormControl(),
-        city: new FormControl(),
-        state: new FormControl(),
-        email: new FormControl(),
+        cpf: new FormControl([
+          Validators.required,
+          Validators.pattern(
+            '[0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2}'
+          ),
+        ]),
+        zipCode: new FormControl([
+          Validators.required,
+          Validators.pattern('^([d]{2}).?([d]{3})-?([d]{3})'),
+        ]),
+        city: new FormControl([
+          Validators.required,
+          Validators.minLength(3),
+          Validators.pattern(
+            '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
+          ),
+        ]),
+        state: new FormControl([
+          Validators.required,
+          Validators.minLength(3),
+          Validators.pattern(
+            '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
+          ),
+        ]),
+        email: new FormControl([
+          Validators.required,
+          Validators.email,
+          Validators.pattern('[A-Za-z0-9.%-]+@[A-Za-z0-9.%-]+.[a-z]{2,3}'),
+        ]),
         phone: new FormControl(),
       }),
       skillName: new FormControl(),
@@ -55,6 +85,11 @@ export class EditUserComponent {
   }
 
   public EditUserForm(event: any): void {
+    let id = this.user.id;
+    let image = this.user.image;
+    this.user = this.form.getRawValue();
+    this.user.id = id;
+    this.user.image = image;
     this.service.putUser(this.user).subscribe(() => {
       this.router.navigateByUrl('list-user');
     });

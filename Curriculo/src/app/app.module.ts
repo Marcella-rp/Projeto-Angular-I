@@ -18,6 +18,7 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 import { UserComponent } from './components/user/user.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,10 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    NgxMaskPipe,
+    NgxMaskDirective,
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   bootstrap: [AppComponent],
   exports: [CommonModule, FormsModule, ReactiveFormsModule],
 })

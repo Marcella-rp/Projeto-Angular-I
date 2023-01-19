@@ -26,7 +26,7 @@ export class UsersService {
 
   putUser(user: CreateUserData): Observable<CreateUserData> {
     const url = `${this.urlApi}/${user.id}`;
-    return this.httpClient.put<CreateUserData>(this.urlApi, user);
+    return this.httpClient.put<CreateUserData>(url, user);
   }
 
   deleteUser(id: number): Observable<CreateUserData> {
