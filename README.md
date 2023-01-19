@@ -6,7 +6,7 @@
  
  1. Abra o terminal na pasta "..\OccupationSite\Curriculo\data"
  
- 2. Digite "json-server --watch db.json"
+ 2. Digite "npx json-server --watch db.json"
  
  
  SERVIDOR - ANGULAR
