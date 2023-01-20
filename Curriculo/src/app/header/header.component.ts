@@ -1,6 +1,8 @@
 import { LoginService } from './../components/login/services/login.service';
 import { LoginData } from 'src/models/login-data.models';
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor(private loginService: LoginService){}
+  constructor(private loginService: LoginService, private router: Router){
+    router.events.subscribe(x => {
+      this.getLocalStorage()
+    });
+  }
 
   ngOnInit(){
     this.getLocalStorage()
@@ -17,7 +23,6 @@ export class HeaderComponent {
 
   loggedUser: boolean = false;
   public getLocalStorage(){
-    console.log("oi")
     const isNull = JSON.parse(localStorage.getItem('USER_TOKEN')!);
     isNull === null ? this.loggedUser = false : this.loggedUser = true
   }
