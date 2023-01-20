@@ -18,11 +18,8 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { HeaderComponent } from './header/header.component';
-<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-=======
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
->>>>>>> 958c45afa7ad895dfdf60bc8e31df1ce93ba7258
 
 @NgModule({
   declarations: [
@@ -50,7 +47,10 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
     NgxMaskDirective,
     BrowserAnimationsModule,
   ],
-  providers: [provideNgxMask(),{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [
+    provideNgxMask(),
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
   exports: [CommonModule, FormsModule, ReactiveFormsModule],
 })
