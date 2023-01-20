@@ -91,7 +91,7 @@ export class EditUserComponent {
       this.viaCepService.searchCep(zipCode)?.subscribe((adress: any) => {
         this.fillforms(adress);
         if (adress.erro) {
-          alert('invalid zip code. Try again');
+          alert('Invalid zip code. Try again');
           event.target = '';
         }
       });

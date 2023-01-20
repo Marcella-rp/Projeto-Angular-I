@@ -4,6 +4,11 @@ padding: 0;
 box-sizing: border-box;
 }
 
+.mat-form-field{width:100%;}
+.misc-bottom-padding{margin:8px 0 20px;}
+.misc-bottom-padding mat-label{margin-right:15px;}
+.mat-radio-label{margin:0 15px 0 0;}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -50,3 +55,6 @@ a{
     min-width: calc(100vw - 35vw - 12px);
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

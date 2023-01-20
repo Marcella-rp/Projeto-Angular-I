@@ -18,6 +18,7 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { HeaderComponent } from './header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     NgxMaskPipe,
     NgxMaskDirective,
+    BrowserAnimationsModule,
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent],

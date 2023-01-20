@@ -75,7 +75,7 @@ export class CreateUserComponent implements OnInit {
       this.viaCepService.searchCep(zipCode)?.subscribe((adress: any) => {
         this.fillforms(adress);
         if (adress.erro) {
-          alert('invalid zip code. Try again');
+          alert('Invalid zip code. Try again');
           event.target = '';
         }
       });
@@ -101,7 +101,7 @@ export class CreateUserComponent implements OnInit {
       (result) => {
         console.log(result);
 
-        alert('user created successfully');
+        alert('User created successfully');
 
         let userIndex!: string;
 
@@ -110,6 +110,7 @@ export class CreateUserComponent implements OnInit {
           userIndex = quantify.toString();
           let user = 'userAcess';
           localStorage.setItem(user, userIndex);
+          this.router.navigateByUrl('list-user');
         });
       },
       (error) => alert('User not created successfully... Try again!')

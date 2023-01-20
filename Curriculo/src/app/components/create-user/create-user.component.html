@@ -22,6 +22,7 @@
     <div class="PersonalInformation" formGroupName="personalInformationData">
       <div class="form-field">
         <label class="form-field__label" for="user">Name</label>
+
         <input
           class="form-field__input"
           type="text"
@@ -29,6 +30,8 @@
           placeholder="Type your complete name (without abreviations)..."
           formControlName="name"
         />
+        <span class="invalid-feedback" *ngIf="form.controls['name'].errors">
+        </span>
       </div>
       <div class="form-field">
         <label class="form-field__label" for="user">Occupation</label>
