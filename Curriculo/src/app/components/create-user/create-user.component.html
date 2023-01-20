@@ -58,7 +58,7 @@
           placeholder="Type your CEP..."
           formControlName="zipCode"
           mask="00000-000"
-          (blur)="searchFormCep($event.target.value)"
+          (blur)="searchFormCep()"
         />
       </div>
       <div class="form-field">
@@ -67,7 +67,7 @@
           class="form-field__input"
           type="text"
           id="city"
-          placeholder="Type your city..."
+          placeholder="Automatically filled by zip code"
           formControlName="city"
         />
       </div>
@@ -77,7 +77,7 @@
           class="form-field__input"
           type="text"
           id="state"
-          placeholder="Type your state..."
+          placeholder="Automatically filled by zip code"
           formControlName="state"
         />
       </div>
@@ -220,8 +220,9 @@
       </div>
     </div>
     <div class="button-wrapper">
-      <button class="btn2" (click)="CancelUserForm()">Cancel</button>
+      <button class="btn2" (click)="ResetForm()">Clean</button>
       <button class="btn2" (click)="CreateUserForm($event)">Create</button>
+      <button class="btn2" (click)="CancelUserForm()">Cancel</button>
     </div>
 
     <br /><br />

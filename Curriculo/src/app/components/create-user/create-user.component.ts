@@ -1,3 +1,4 @@
+import { PersonaInformationData } from './../../../models/personal-information.models';
 import { ViaCepService } from './../../services/via-cep.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -34,11 +35,7 @@ export class CreateUserComponent implements OnInit {
         date: new FormControl(new Date()),
       }),
       personalInformationData: new FormGroup({
-<<<<<<< HEAD
-        name: new FormControl('', [
-=======
         name: new FormControl(null, [
->>>>>>> 721ae3060b5439b42167cb94b0e43f14c813c323
           Validators.required,
           Validators.minLength(3),
           Validators.pattern(
@@ -47,24 +44,18 @@ export class CreateUserComponent implements OnInit {
         ]),
         occupation: new FormControl(),
         cpf: new FormControl('', [Validators.required]),
-        zipCode: new FormControl([
-        cpf: new FormControl(null,[
-          Validators.required,
-          Validators.pattern('^[d]{3}.[d]{3}.[d]{3}-[d]{2}$'),
-
-        ]),
         zipCode: new FormControl(null, [
           Validators.required,
           Validators.pattern('^([d]{2}).?([d]{3})-?([d]{3})'),
         ]),
-        city: new FormControl(null, [
+        city: new FormControl({ value: null, disabled: true }, [
           Validators.required,
           Validators.minLength(3),
           Validators.pattern(
             '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
           ),
         ]),
-        state: new FormControl(null, [
+        state: new FormControl({ value: null, disabled: true }, [
           Validators.required,
           Validators.minLength(3),
           Validators.pattern(
@@ -85,14 +76,13 @@ export class CreateUserComponent implements OnInit {
     });
   }
 
-  public searchFormCep(zipCode?: any) {
-
-
+  public searchFormCep() {
+    let zipCode = this.form.value['personalInformationData']['zipCode'];
 
     if (zipCode != null && zipCode !== '') {
-      this.fillforms(this.viaCepService
-        .searchCep(zipCode));
-
+      this.viaCepService
+        .searchCep(zipCode)
+        ?.subscribe((adress: any) => this.fillforms(adress));
     }
   }
 
@@ -110,6 +100,7 @@ export class CreateUserComponent implements OnInit {
     this.createData.image = document
       .querySelector('#img__preview')
       ?.getAttribute('src');
+
     this.service.postUsers(this.createData).subscribe(
       (result) => {
         console.log(result);
@@ -123,7 +114,6 @@ export class CreateUserComponent implements OnInit {
           userIndex = quantify.toString();
           let user = 'userAcess';
           localStorage.setItem(user, userIndex);
-          //this.router.navigateByUrl('info-general-dynamic');
         });
       },
       (error) => alert('User not created successfully... Try again!')
@@ -142,5 +132,9 @@ export class CreateUserComponent implements OnInit {
 
   public CancelUserForm() {
     this.router.navigateByUrl('list-user');
+  }
+
+  public ResetForm() {
+    this.form.reset();
   }
 }

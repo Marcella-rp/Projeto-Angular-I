@@ -106,4 +106,8 @@ export class EditUserComponent {
   public CancelUserForm() {
     this.router.navigateByUrl('list-user');
   }
+
+  public ResetForm() {
+    this.form.reset();
+  }
 }
