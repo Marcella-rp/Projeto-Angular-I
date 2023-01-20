@@ -42,6 +42,7 @@
           placeholder="Type your CEP..."
           mask="00000-000"
           formControlName="zipCode"
+          (blur)="searchFormCep($event.target)"
         />
       </div>
       <div class="form-field">

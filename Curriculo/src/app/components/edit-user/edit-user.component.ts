@@ -1,3 +1,4 @@
+import { ViaCepService } from './../../services/via-cep.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -18,7 +19,8 @@ export class EditUserComponent {
   constructor(
     private service: UsersService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private viaCepService: ViaCepService
   ) {}
 
   ngOnInit(): void {
@@ -54,14 +56,14 @@ export class EditUserComponent {
           Validators.required,
           Validators.pattern('^([d]{2}).?([d]{3})-?([d]{3})'),
         ]),
-        city: new FormControl(null, [
+        city: new FormControl({ value: null, disabled: true }, [
           Validators.required,
           Validators.minLength(3),
           Validators.pattern(
             '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
           ),
         ]),
-        state: new FormControl(null, [
+        state: new FormControl({ value: null, disabled: true }, [
           Validators.required,
           Validators.minLength(3),
           Validators.pattern(
@@ -79,6 +81,29 @@ export class EditUserComponent {
       skillLevel: new FormControl(),
       languageName: new FormControl(),
       languagelevel: new FormControl(),
+    });
+  }
+
+  public searchFormCep(event: any) {
+    let zipCode = this.form.value['personalInformationData']['zipCode'];
+
+    if (zipCode != null && zipCode !== '') {
+      this.viaCepService.searchCep(zipCode)?.subscribe((adress: any) => {
+        this.fillforms(adress);
+        if (adress.erro) {
+          alert('invalid zip code. Try again');
+          event.target = '';
+        }
+      });
+    }
+  }
+
+  fillforms(adress: any) {
+    this.form.patchValue({
+      personalInformationData: {
+        city: adress.localidade,
+        state: adress.uf,
+      },
     });
   }
 

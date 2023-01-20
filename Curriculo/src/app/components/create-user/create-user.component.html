@@ -11,7 +11,9 @@
       /><br />
       <img
         id="img__preview"
-        [src]="imgSrc"
+        [src]="
+          imgSrc != null ? imgSrc : '../../../assets/images/no-image_local.png'
+        "
         height="400"
         alt="Image preview..."
       /><br />
@@ -55,10 +57,10 @@
           class="form-field__input"
           type="text"
           id="zipCode"
-          placeholder="Type your CEP..."
+          placeholder="Type your zip code..."
           formControlName="zipCode"
           mask="00000-000"
-          (blur)="searchFormCep()"
+          (blur)="searchFormCep($event.target)"
         />
       </div>
       <div class="form-field">

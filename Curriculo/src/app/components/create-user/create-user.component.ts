@@ -1,4 +1,3 @@
-import { PersonaInformationData } from './../../../models/personal-information.models';
 import { ViaCepService } from './../../services/via-cep.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -38,6 +37,7 @@ export class CreateUserComponent implements OnInit {
         name: new FormControl(null, [
           Validators.required,
           Validators.minLength(3),
+          Validators.maxLength(100),
           Validators.pattern(
             '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
           ),
@@ -50,17 +50,9 @@ export class CreateUserComponent implements OnInit {
         ]),
         city: new FormControl({ value: null, disabled: true }, [
           Validators.required,
-          Validators.minLength(3),
-          Validators.pattern(
-            '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
-          ),
         ]),
         state: new FormControl({ value: null, disabled: true }, [
           Validators.required,
-          Validators.minLength(3),
-          Validators.pattern(
-            '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
-          ),
         ]),
         email: new FormControl(null, [
           Validators.required,
@@ -76,13 +68,17 @@ export class CreateUserComponent implements OnInit {
     });
   }
 
-  public searchFormCep() {
+  public searchFormCep(event: any) {
     let zipCode = this.form.value['personalInformationData']['zipCode'];
 
     if (zipCode != null && zipCode !== '') {
-      this.viaCepService
-        .searchCep(zipCode)
-        ?.subscribe((adress: any) => this.fillforms(adress));
+      this.viaCepService.searchCep(zipCode)?.subscribe((adress: any) => {
+        this.fillforms(adress);
+        if (adress.erro) {
+          alert('invalid zip code. Try again');
+          event.target = '';
+        }
+      });
     }
   }
 
@@ -124,6 +120,9 @@ export class CreateUserComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
+        if (e.target.result == null || e.target.result == '') {
+          this.imgSrc = '../../../assets/images/no-image_local.png';
+        }
         this.imgSrc = e.target.result;
       };
       reader.readAsDataURL(event.target.files[0]);
