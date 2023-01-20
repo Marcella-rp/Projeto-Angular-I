@@ -17,6 +17,7 @@ import { UserComponent } from './components/user/user.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     UserComponent,
     DeleteUserComponent,
     EditUserComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
