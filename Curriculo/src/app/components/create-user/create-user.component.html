@@ -11,7 +11,9 @@
       /><br />
       <img
         id="img__preview"
-        [src]="imgSrc"
+        [src]="
+          imgSrc != null ? imgSrc : '../../../assets/images/no-image_local.png'
+        "
         height="400"
         alt="Image preview..."
       /><br />
