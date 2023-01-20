@@ -1,3 +1,4 @@
+import { PersonaInformationData } from './../../../models/personal-information.models';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,6 +7,21 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent {
+  ngOnInit() {
+    this.getId();
+  }
+  userHasId: boolean = false;
+  id = null;
+  public getId(): Boolean {
+    const id = JSON.parse(localStorage.getItem('id')!);
+    id === null ? (this.userHasId = false) : (this.userHasId = true);
+    if (id !== null && this.user.id == id) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @Input() user = {
     loginData: {
       userName: 'PerterSpider',

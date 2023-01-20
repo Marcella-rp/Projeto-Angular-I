@@ -1,3 +1,4 @@
+import { HeaderComponent } from './header/header.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'user/deleteUser/:id', component: DeleteUserComponent },
   { path: 'user/editUser/:id', component: EditUserComponent },
+  {path: 'header', component: HeaderComponent}
 ];
 
 @NgModule({

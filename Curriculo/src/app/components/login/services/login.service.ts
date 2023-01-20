@@ -26,7 +26,7 @@ export class LoginService {
 
   public logout(): void {
     localStorage.removeItem('USER_TOKEN');
-    localStorage.removeItem('USER');
+    localStorage.removeItem('id');
     this.router.navigate(['/login']);
   }
 }

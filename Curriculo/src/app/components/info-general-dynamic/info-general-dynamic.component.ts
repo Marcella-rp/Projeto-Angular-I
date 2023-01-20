@@ -21,7 +21,6 @@ export class InfoGeneralDynamicComponent implements OnInit {
   ngOnInit(): void {
     let myUser = localStorage.getItem('userAcess');
     let myUserNumber = myUser != null ? parseInt(myUser) : -1;
-    console.log(myUserNumber);
     if (myUserNumber != -1) {
       this.service.getUsers().subscribe((logins: CreateUserData[]) => {
         for (let index = 0; index < 1; index++) {

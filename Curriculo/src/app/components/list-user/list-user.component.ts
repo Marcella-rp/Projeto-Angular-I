@@ -14,5 +14,6 @@ export class ListUserComponent implements OnInit {
     this.userService.getUsers().subscribe((listUser) => {
       this.listUser = listUser;
     });
+
   }
 }
