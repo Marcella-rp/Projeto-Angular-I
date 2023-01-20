@@ -57,10 +57,10 @@
           class="form-field__input"
           type="text"
           id="zipCode"
-          placeholder="Type your CEP..."
+          placeholder="Type your zip code..."
           formControlName="zipCode"
           mask="00000-000"
-          (blur)="searchFormCep()"
+          (blur)="searchFormCep($event.target)"
         />
       </div>
       <div class="form-field">

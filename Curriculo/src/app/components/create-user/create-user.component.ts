@@ -68,13 +68,17 @@ export class CreateUserComponent implements OnInit {
     });
   }
 
-  public searchFormCep() {
+  public searchFormCep(event: any) {
     let zipCode = this.form.value['personalInformationData']['zipCode'];
 
     if (zipCode != null && zipCode !== '') {
-      this.viaCepService
-        .searchCep(zipCode)
-        ?.subscribe((adress: any) => this.fillforms(adress));
+      this.viaCepService.searchCep(zipCode)?.subscribe((adress: any) => {
+        this.fillforms(adress);
+        if (adress.erro) {
+          alert('invalid zip code. Try again');
+          event.target = '';
+        }
+      });
     }
   }
 
