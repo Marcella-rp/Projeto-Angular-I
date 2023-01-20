@@ -5,6 +5,7 @@
   color: #009688;
 }
 
+
 form{
   background-color: white;
   border-radius: 4px;
@@ -104,4 +105,10 @@ fieldset{
     width: 30vw;
     font-size: 1.1em;
   }
+
+.img-default{
+
+  width: 75vw;
+  height: 60vh;
+}
 }
