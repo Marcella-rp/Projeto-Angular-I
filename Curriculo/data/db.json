@@ -45,52 +45,6 @@
       "languagelevel": "begginer",
       "id": 6,
       "image": ""
-    },
-    {
-      "loginData": {
-        "userName": "Ma_rp",
-        "password": "123456",
-        "date": "2023-01-20T00:37:02.313Z"
-      },
-      "personalInformationData": {
-        "name": "Marcella Pastore",
-        "occupation": "Dev",
-        "cpf": "33333333333",
-        "zipCode": "13567756",
-        "city": "Jundiai",
-        "state": "Sao Paulo",
-        "email": "mmmm.mmm@gmail.com",
-        "phone": "19999778899"
-      },
-      "skillName": "JS",
-      "skillLevel": "begginer",
-      "languageName": "Frances",
-      "languagelevel": "begginer",
-      "image": "",
-      "id": 7
-    },
-    {
-      "loginData": {
-        "userName": "Ma_rp",
-        "password": "123456",
-        "date": "2023-01-20T00:48:33.366Z"
-      },
-      "personalInformationData": {
-        "name": "Marcella Roverato ",
-        "occupation": "Dev",
-        "cpf": "33333333333",
-        "zipCode": "13567756",
-        "city": "Jundiai",
-        "state": "Sao Paulo",
-        "email": "mmmm.mmm@gmail.com",
-        "phone": "19999778899"
-      },
-      "skillName": "JS",
-      "skillLevel": "begginer",
-      "languageName": "Frances",
-      "languagelevel": "begginer",
-      "id": 8,
-      "image": ""
     }
   ]
 }

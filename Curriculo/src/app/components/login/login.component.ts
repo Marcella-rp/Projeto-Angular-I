@@ -3,6 +3,7 @@ import { LoginService } from './services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CreateUserData } from 'src/models/createUser-data.models';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -29,26 +30,32 @@ export class LoginComponent implements OnInit {
   public loginForm(event: any): void {
     event.preventDefault();
     this.loginsData = this.form.getRawValue();
-    console.log(this.loginsData);
     this.loginService
       .getUsersLogins()
-      .subscribe((loginsDataApi: CreateUserData['loginData']) => {
+      .pipe(first())
+      .subscribe((loginsDataApi: any) => {
         let logged: boolean = false;
-        let loginList = JSON.stringify(loginsDataApi);
-        for (let index = 0; index < loginList.length; index++) {
-          console.log(loginList);
-        }
-        if (
-          loginsDataApi.userName === this.loginsData.userName &&
-          loginsDataApi.password === this.loginsData.password
-        ) {
-          console.log('logou');
-          logged = true;
-        }
 
-        if (!logged) {
-          console.log('não logou');
+        for (
+          let index = 0;
+          index < Object.keys(loginsDataApi).length;
+          index++
+        ) {
+          let loginList = loginsDataApi[`${index}`];
+          console.log(loginList['loginData']['password']);
+          if (
+            loginList['loginData']['userName'] === this.loginsData.userName &&
+            loginList['loginData']['password'] === this.loginsData.password
+          ) {
+            alert('Sucess! Log in!');
+            logged = true;
+          }
+
+          if (!logged) {
+            alert('User or password incorrect. Please, try again!');
+          }
         }
+        //
       });
   }
 }
