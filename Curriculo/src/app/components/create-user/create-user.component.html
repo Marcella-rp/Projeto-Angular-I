@@ -58,6 +58,7 @@
           placeholder="Type your CEP..."
           formControlName="zipCode"
           mask="00000-000"
+          (blur)="searchFormCep($event.target.value)"
         />
       </div>
       <div class="form-field">
@@ -219,8 +220,8 @@
       </div>
     </div>
     <div class="button-wrapper">
-      <button class="btn" (click)="CreateUserForm($event)">Create</button>
-      <button class="btn" (click)="CancelUserForm()">Cancel</button>
+      <button class="btn2" (click)="CancelUserForm()">Cancel</button>
+      <button class="btn2" (click)="CreateUserForm($event)">Create</button>
     </div>
 
     <br /><br />

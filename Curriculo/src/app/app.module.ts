@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 import { ExperiencesComponent } from './components/experiences/experiences.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InfoGeneralDynamicComponent } from './components/info-general-dynamic/info-general-dynamic.component';
-import { ExperienceComponent } from './components/experience/experience.component';
-import { FormsComponent } from './components/forms/forms.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateUserComponent } from './components/create-user/create-user.component';
@@ -26,8 +24,6 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     ExperiencesComponent,
     FooterComponent,
     InfoGeneralComponent,
-    ExperienceComponent,
-    FormsComponent,
     CreateUserComponent,
     InfoGeneralDynamicComponent,
     LoginComponent,
