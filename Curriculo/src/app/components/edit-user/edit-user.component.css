@@ -1,4 +1,4 @@
-.form {
+/* .form {
   background-color: white;
   padding: 16px;
   border-radius: 4px;
@@ -7,9 +7,8 @@
     text-transform: capitalize;
     color: var(--primary);
   } */
-}
 
-.btn{
+/* .btn{
 margin-left: 5px;
 margin-top: 10px;
 }
@@ -20,7 +19,7 @@ margin-top: 10px;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
-  color: var(--primary);
+  color: var(--primary); */
 
   /* &__label {
     color: inherit;
@@ -35,13 +34,67 @@ margin-top: 10px;
     border: 2px solid;
     outline: none;
   } */
+/* }
+
+.button-wrapper {
+  display: flex;
+} */
+
+.form__title{
+  text-align: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  color: #009688;
+}
+
+form{
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border: solid 2px #009688;
+  width: 50%;
+  margin: auto;
+  font-size: 1em;
+  color: var(--primary);
+}
+
+.form-field{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field__label{
+  font-weight: 600;
+  margin-left: 4vw;
+}
+
+.form-field__input{
+  width: 80%;
+  height: 6vh;
+  margin-left: 4vw;
+  border-radius: 10px;
+  border: none;
+  background-color: #e9ecef;
+}
+
+.form-field__input::placeholder{
+  padding-left: 2vh;
+}
+
+fieldset{
+  margin-left: 4vw;
 }
 
 .button-wrapper {
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.btn {
+.btn{
   background-color: var(--primary);
   color: white;
   display: block;
@@ -50,15 +103,47 @@ margin-top: 10px;
   border-radius: 4px;
   font-size: 16px;
   padding: 0.5em;
-  cursor: pointer;
   transition: opacity 0.2s;
-/*
-  &--cancelar {
-    background-color: var(--secondary);
-    margin-left: 20px;
-  } */
+}
+.btn:hover{
+  cursor: pointer;
+  opacity: 5px;
+}
 
-  /* &:hover {
-    opacity: 0.8;
-  } */
+.btn2{
+  border: solid 2px #009688;
+  height: 5vh;
+  width: 10vw;
+  font-size: 1em;
+  border-radius: 10px;
+  margin-top: 3vh;
+}
+.btn2:hover{
+  background-color: #009688;
+  color:white;
+}
+
+@media(max-width: 700px) and (min-width: 360px){
+  form{
+    width: 100%;
+  }
+
+  .form-field{
+    font-size: 1.2em;
+  }
+
+  .form-field__input{
+    width: 90%;
+    height: 7vh;
+  }
+
+  .btn{
+    font-size: 0.9em;
+  }
+
+  .btn2{
+    height: 7vh;
+    width: 30vw;
+    font-size: 1.1em;
+  }
 }
