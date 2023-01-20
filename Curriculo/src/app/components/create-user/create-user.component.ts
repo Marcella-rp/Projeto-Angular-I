@@ -99,10 +99,7 @@ export class CreateUserComponent implements OnInit {
 
     this.service.postUsers(this.createData).subscribe(
       (result) => {
-        console.log(result);
-
         alert('user created successfully');
-
         let userIndex!: string;
 
         this.service.getUsers().subscribe((logins: CreateUserData[]) => {
