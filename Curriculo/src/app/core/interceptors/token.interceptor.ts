@@ -13,16 +13,14 @@ export class TokenInterceptor implements HttpInterceptor {
 
   constructor(private router: Router) {}
 
-
-
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
     ): Observable<HttpEvent<any>> {
 
-      if (request.url.includes('/login') || request.url.includes('/users/create')){
-        return next.handle(request);
-      }
+      // if (request.url.includes('/login') || request.url.includes('/users/create')){
+      //   return next.handle(request);
+      // }
       const token = localStorage.getItem('USER_TOKEN');
 
       // if(!token){
