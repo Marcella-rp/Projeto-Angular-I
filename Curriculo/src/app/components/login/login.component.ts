@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CreateUserData } from 'src/models/createUser-data.models';
 import { first } from 'rxjs';
+import { TokenService } from './services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   loginsData!: any;
   public form!: FormGroup;
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router,
+  private tokenService: TokenService) {}
   //Login
   ngOnInit(): void {
     this.buildForm();
@@ -47,7 +49,10 @@ export class LoginComponent implements OnInit {
             loginList['loginData']['userName'] === this.loginsData.userName &&
             loginList['loginData']['password'] === this.loginsData.password
           ) {
-            alert('Sucess! Log in!');
+            //alert('Sucess! Log in!');
+            const token = this.tokenService.generateToken()
+            const user = {id: loginList['id'], token: token}
+            localStorage.setItem('user', JSON.stringify(user));
             logged = true;
           }
 
