@@ -13,6 +13,11 @@ export class ListUserComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe((listUser) => {
       this.listUser = listUser;
+      console.log(this.listUser)
+      console.log("idDDDD", typeof this.listUser[0].id)
+            console.log("idDDDD segundo", this.listUser[1].id)
+
     });
+
   }
 }

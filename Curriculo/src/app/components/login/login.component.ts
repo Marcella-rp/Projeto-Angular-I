@@ -15,8 +15,11 @@ export class LoginComponent implements OnInit {
   loginsData!: any;
   public form!: FormGroup;
 
-  constructor(private loginService: LoginService, private router: Router,
-  private tokenService: TokenService) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private tokenService: TokenService
+  ) {}
   //Login
   ngOnInit(): void {
     this.buildForm();
@@ -44,24 +47,20 @@ export class LoginComponent implements OnInit {
           index++
         ) {
           let loginList = loginsDataApi[`${index}`];
-          console.log(loginList['loginData']['password']);
           if (
             loginList['loginData']['userName'] === this.loginsData.userName &&
             loginList['loginData']['password'] === this.loginsData.password
           ) {
-
-            const USER_TOKEN = this.tokenService.generateToken()
-            localStorage.setItem('id', JSON.stringify(loginList['id'],));
+            const USER_TOKEN = this.tokenService.generateToken();
+            logged = true;
+            localStorage.setItem('id', JSON.stringify(loginList['id']));
             localStorage.setItem('USER_TOKEN', JSON.stringify(USER_TOKEN));
             this.router.navigate(['/list-user']);
-            logged = true;
-          }
-
-          if (!logged) {
-            alert('User or password incorrect. Please, try again!');
           }
         }
-        //
+        if (!logged) {
+          alert('User or password incorrect. Please, try again!');
+        }
       });
   }
 }

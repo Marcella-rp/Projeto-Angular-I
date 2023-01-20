@@ -43,10 +43,11 @@
       </div>
     </section>
     <div class="actions">
-      <button *ngIf="userHasId" class="button-edit" routerLink="/user/editUser/{{ user.id }}">
+      <button *ngIf="getId()" class="button-edit" routerLink="/user/editUser/{{ user.id }}">
         <img src="../../../assets/images/edit-icon.png" alt="edit icon" />
       </button>
-      <button *ngIf="userHasId" class="button-delete" routerLink="/user/deleteUser/{{ user.id }}">
+
+      <button *ngIf="getId()" class="button-delete" routerLink="/user/deleteUser/{{ user.id }}">
         <img src="../../../assets/images/delete-icon.png" alt="delete icon" />
       </button>
     </div>

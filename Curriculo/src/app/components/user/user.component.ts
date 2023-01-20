@@ -1,3 +1,4 @@
+import { PersonaInformationData } from './../../../models/personal-information.models';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -12,12 +13,15 @@ export class UserComponent {
   }
   userHasId: boolean = false;
   id = null;
-  public getId(){
+  public getId(): Boolean{
     const id = JSON.parse(localStorage.getItem('id')!);
-    console.log(id)
+    console.log("peguei do storage", id)
     id === null ? this.userHasId = false : this.userHasId = true
-    console.log("id",id)
-    console.log("user tem id", this.userHasId)
+    if(id !== null && this.user.id == id){
+      return true}
+    else{
+      return false}
+
   }
 
 
