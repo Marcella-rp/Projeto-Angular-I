@@ -50,9 +50,14 @@ export class LoginComponent implements OnInit {
             loginList['loginData']['password'] === this.loginsData.password
           ) {
             //alert('Sucess! Log in!');
-            const token = this.tokenService.generateToken()
-            const user = {id: loginList['id'], token: token}
-            localStorage.setItem('user', JSON.stringify(user));
+            const USER_TOKEN = this.tokenService.generateToken()
+            // const userAcess = {id: loginList['id'], token: token}
+            // localStorage.setItem('userAcess', JSON.stringify(userAcess));
+            // this.router.navigate(['/',''])
+
+            localStorage.setItem('USER_TOKEN', JSON.stringify(USER_TOKEN));
+            this.router.navigate(['/list-user']);
+
             logged = true;
           }
 
