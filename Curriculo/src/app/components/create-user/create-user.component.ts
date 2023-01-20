@@ -72,9 +72,10 @@ export class CreateUserComponent implements OnInit {
     let zipCode = this.form.value['personalInformationData']['zipCode'];
 
     if (zipCode != null && zipCode !== '') {
-      this.viaCepService
-        .searchCep(zipCode)
-        ?.subscribe((adress: any) => this.fillforms(adress));
+      this.viaCepService.searchCep(zipCode)?.subscribe((adress: any) => {
+        this.fillforms(adress);
+        console.log(adress);
+      });
     }
   }
 
