@@ -29,7 +29,7 @@ export class CreateUserComponent implements OnInit {
         date: new FormControl(new Date()),
       }),
       personalInformationData: new FormGroup({
-        name: new FormControl([
+        name: new FormControl(null, [
           Validators.required,
           Validators.minLength(3),
           Validators.pattern(
@@ -37,31 +37,30 @@ export class CreateUserComponent implements OnInit {
           ),
         ]),
         occupation: new FormControl(),
-        cpf: new FormControl([
+        cpf: new FormControl(null,[
           Validators.required,
-          Validators.pattern(
-            '[0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2}'
-          ),
+          Validators.pattern('^[d]{3}.[d]{3}.[d]{3}-[d]{2}$'),
+          
         ]),
-        zipCode: new FormControl([
+        zipCode: new FormControl(null, [
           Validators.required,
           Validators.pattern('^([d]{2}).?([d]{3})-?([d]{3})'),
         ]),
-        city: new FormControl([
+        city: new FormControl(null, [
           Validators.required,
           Validators.minLength(3),
           Validators.pattern(
             '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
           ),
         ]),
-        state: new FormControl([
+        state: new FormControl(null, [
           Validators.required,
           Validators.minLength(3),
           Validators.pattern(
             '^(?!.{51})[a-zA-Zà-úÀ-Ú-]+(?: [a-zA-Zà-úÀ-Ú]+(?: [a-zA-Zà-úÀ-Ú-]+)?)?$'
           ),
         ]),
-        email: new FormControl([
+        email: new FormControl(null, [
           Validators.required,
           Validators.email,
           Validators.pattern('[A-Za-z0-9.%-]+@[A-Za-z0-9.%-]+.[a-z]{2,3}'),
@@ -93,7 +92,7 @@ export class CreateUserComponent implements OnInit {
           userIndex = quantify.toString();
           let user = 'userAcess';
           localStorage.setItem(user, userIndex);
-          this.router.navigateByUrl('info-general-dynamic');
+          //this.router.navigateByUrl('info-general-dynamic');
         });
       },
       (error) => alert('User not created successfully... Try again!')

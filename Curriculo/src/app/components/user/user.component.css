@@ -20,6 +20,12 @@
   margin-bottom: 5vh;
 }
 
+.img_perfil{
+  position: relative;
+  width: 30vw;
+  height: 60vh;
+} 
+
 .img_perfil img{
   width: 100%;
   height: 100%;
@@ -31,7 +37,7 @@
   color: #ffff;
   text-shadow: black 0.1em 0.1em 0.2em;
   padding-left: 1vw;
-  top: 62vh;
+  top: 52vh;
 }
 
 .items{
