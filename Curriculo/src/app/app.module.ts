@@ -8,7 +8,7 @@ import { ExperiencesComponent } from './components/experiences/experiences.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { InfoGeneralDynamicComponent } from './components/info-general-dynamic/info-general-dynamic.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { InfoGeneralComponent } from './components/info-general/info-general.component';
 import { CommonModule } from '@angular/common';
@@ -18,6 +18,7 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { HeaderComponent } from './header/header.component';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { HeaderComponent } from './header/header.component';
     NgxMaskPipe,
     NgxMaskDirective,
   ],
-  providers: [provideNgxMask()],
+  providers: [provideNgxMask(),{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent],
   exports: [CommonModule, FormsModule, ReactiveFormsModule],
 })
