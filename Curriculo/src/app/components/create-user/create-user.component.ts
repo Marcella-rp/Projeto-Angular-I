@@ -1,3 +1,4 @@
+import { ViaCepService } from './../../services/via-cep.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CreateUserData } from 'src/models/createUser-data.models';
@@ -16,7 +17,11 @@ export class CreateUserComponent implements OnInit {
   public selectedFile!: ImageSnippet;
   public imgSrc!: string;
 
-  constructor(private service: UsersService, private router: Router) {}
+  constructor(
+    private service: UsersService,
+    private router: Router,
+    private viaCepService: ViaCepService
+  ) {}
   ngOnInit(): void {
     this.buildForm();
   }
@@ -29,7 +34,7 @@ export class CreateUserComponent implements OnInit {
         date: new FormControl(new Date()),
       }),
       personalInformationData: new FormGroup({
-        name: new FormControl([
+        name: new FormControl('', [
           Validators.required,
           Validators.minLength(3),
           Validators.pattern(
@@ -37,12 +42,7 @@ export class CreateUserComponent implements OnInit {
           ),
         ]),
         occupation: new FormControl(),
-        cpf: new FormControl([
-          Validators.required,
-          Validators.pattern(
-            '[0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2}'
-          ),
-        ]),
+        cpf: new FormControl('', [Validators.required]),
         zipCode: new FormControl([
           Validators.required,
           Validators.pattern('^([d]{2}).?([d]{3})-?([d]{3})'),
@@ -72,6 +72,25 @@ export class CreateUserComponent implements OnInit {
       skillLevel: new FormControl(),
       languageName: new FormControl(),
       languagelevel: new FormControl(),
+    });
+  }
+
+  public searchFormCep() {
+    let cep = this.form.get('personalInformationData.zipCode')?.value;
+
+    if (cep != null && cep !== '') {
+      this.viaCepService
+        .searchCep(cep)
+        ?.subscribe((adress) => this.fillforms(adress));
+    }
+  }
+
+  fillforms(adress: any) {
+    this.form.patchValue({
+      personalInformationData: {
+        city: adress.localidade,
+        state: adress.uf,
+      },
     });
   }
 
